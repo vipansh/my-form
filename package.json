@@ -1,0 +1,44 @@
+{
+  "name": "reacttailwindboilerplate",
+  "version": "0.1.0",
+  "private": true,
+  "description": "React-Tailwind Starter Template, base template is create-react-app",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "concurrently": "^5.3.0",
+    "firebase": "^8.3.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.1"
+  },
+  "scripts": {
+    "build:css": "postcss src/styles/index.css -o src/index.css",
+    "watch:css": "postcss src/styles/index.css -o src/index.css -w",
+    "start": "react-scripts start",
+    "dev": "concurrently \"npm run watch:css\" \" npm run start \"",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.1.0",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.0.3"
+  }
+}

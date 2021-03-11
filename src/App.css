@@ -1,0 +1,59 @@
+.tailwind-logo {
+  animation: App-logo-spin infinite 10s linear;
+  height: 10vmin;
+  pointer-events: none;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+input[type="radio"]:checked + span {
+  display: block;
+}
+
+.grid {
+  display: grid;
+}
+@media (min-width: 640px) {
+  .sm\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+.gap-6 {
+  gap: 1.5rem /* 24px */;
+}
+
+@media (min-width: 640px) {
+  .sm\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.gap-4 {
+  gap: 1rem /* 16px */;
+}
+.rounded-2xl {
+  border-radius: 0.5rem /* 16px */;
+}
+
+.toggle__dot {
+  top: -0.25rem;
+  left: -0.25rem;
+  transition: all 0.3s ease-in-out;
+}
+
+input:checked ~ .toggle__dot {
+  transform: translateX(100%);
+  background-color: #48bb78;
+}
