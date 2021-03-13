@@ -1,7 +1,7 @@
 
 import firebase from "firebase/app"
 import "firebase/auth"
-
+import "firebase/database"
 
 
 const app = firebase.initializeApp({
@@ -13,6 +13,7 @@ const app = firebase.initializeApp({
     // appId: process.env.REACT_APP_FIREBASE_APP_ID
     apiKey: "AIzaSyDpMs__-m9V8nNf5vzqvHpjcq-yP122MbA",
     authDomain: "form-clone-2021.firebaseapp.com",
+    databaseURL: "https://form-clone-2021-default-rtdb.firebaseio.com",
     projectId: "form-clone-2021",
     storageBucket: "form-clone-2021.appspot.com",
     messagingSenderId: "1053420827240",
@@ -21,5 +22,7 @@ const app = firebase.initializeApp({
 })
 
 export const auth = app.auth()
+
+export const fireDb = app.database()
 export default app
 

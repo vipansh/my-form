@@ -23,43 +23,48 @@ export const FreeTamplate = () => {
                         <Link to="/form">
                             <div class="grid sm:grid-cols-6 gap-6">
                                 <div>
-                                    <div class=" h-32 relative flex flex-col bg-white p-5 rounded-lg shadow-md cursor-pointer 
+                                    <div class=" h-32 relative flex flex-col p-1 bg-white  rounded-lg shadow-md cursor-pointer 
                             border-2  hover:border-blue-400  ">
-                                        aa
-                            </div>
+                                        <img src={process.env.PUBLIC_URL + '/ques.jpg'} alt="a" class="w-full h-auto rounded-lg" />
+                                    </div>
                                     <span class="font-semibold">Blanks</span>
                                 </div>
                                 <div>
-                                    <div class="h-32 relative flex flex-col bg-white p-5 rounded-lg shadow-md cursor-pointer  border-2  hover:border-blue-400">
-                                        aa
-                                                        </div>
+                                    <div class="h-32 relative flex flex-col bg-white p-1 rounded-lg shadow-md cursor-pointer  border-2  hover:border-blue-400">
+                                        <img src={process.env.PUBLIC_URL + '/ques.jpg'} alt="a" class="w-full h-auto rounded-lg" />
+
+                                    </div>
                                     <span class="font-semibold"> Contact Information</span>
                                 </div><div>
 
-                                    <div class="h-32 relative flex flex-col bg-white p-5 rounded-lg shadow-md cursor-pointer  border-2  hover:border-blue-400">
-                                        aa
-                        </div>
+                                    <div class="h-32 relative flex flex-col bg-white p-1 rounded-lg shadow-md cursor-pointer  border-2  hover:border-blue-400">
+                                        <img src={process.env.PUBLIC_URL + '/ques.jpg'} alt="a" class="w-full h-auto rounded-lg" />
+
+                                    </div>
                                     <span class="font-semibold"> Rsvp</span>
 
                                 </div><div>
 
-                                    <div class="h-32 relative flex flex-col bg-white p-5 rounded-lg shadow-md cursor-pointer  border-2  hover:border-blue-400">
-                                        aa
-                        </div>
+                                    <div class="h-32 relative flex flex-col bg-white p-1 rounded-lg shadow-md cursor-pointer  border-2  hover:border-blue-400">
+                                        <img src={process.env.PUBLIC_URL + '/ques.jpg'} alt="a" class="w-full h-auto rounded-lg" />
+
+                                    </div>
                                     <span class="font-semibold">   Party Invite</span>
 
                                 </div><div>
 
-                                    <div class="h-32 relative flex flex-col bg-white p-5 rounded-lg shadow-md cursor-pointer  border-2  hover:border-blue-400">
-                                        aa
-                        </div>
+                                    <div class="h-32 relative flex flex-col bg-white p-1 rounded-lg shadow-md cursor-pointer  border-2  hover:border-blue-400">
+                                        <img src={process.env.PUBLIC_URL + '/ques.jpg'} alt="a" class="w-full h-auto rounded-lg" />
+
+                                    </div>
                                     <span class="font-semibold">  T-shirt Sign up</span>
 
                                 </div><div>
 
-                                    <div class="h-32 relative flex flex-col bg-white p-5 rounded-lg shadow-md cursor-pointer  border-2  hover:border-blue-400">
-                                        aa
-                        </div>
+                                    <div class="h-32 relative flex flex-col bg-white p-1 rounded-lg shadow-md cursor-pointer  border-2  hover:border-blue-400">
+                                        <img src={process.env.PUBLIC_URL + '/ques.jpg'} alt="a" class="w-full h-auto rounded-lg" />
+
+                                    </div>
                                     <span class="font-semibold">Event Registration</span>
 
                                 </div>

@@ -8,8 +8,8 @@ export const FormProvider = ({ children }) => {
     const [formData, setFormData] = useState([{
         title: "",
         discription: "",
-        color: "red"
-
+        color: "red",
+        content: []
     }])
 
 

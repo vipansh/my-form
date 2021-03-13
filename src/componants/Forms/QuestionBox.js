@@ -34,6 +34,8 @@ export const QuestionBox = ({ value, id, data, isThisActive,color }) => {
 
 
     const [questionType, setQuestionType] = useState("Question Type")
+
+    
     useEffect(() => {
         const updatedData = allquestions.map((data, i) => id === i ?
             Object.assign(data, { questiontype: "CheckBoxes" }) : data)

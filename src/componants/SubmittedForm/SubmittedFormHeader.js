@@ -1,49 +1,7 @@
-import React, { useState, useContext } from 'react'
-import { FormContext } from '../../Context/FormContext'
-import {
-    Link,
-    useHistory
-} from "react-router-dom";
-import { fireDb } from '../../firebase';
+import React from 'react'
+import { Link } from 'react-router-dom'
 
-export const FormHeader = () => {
-    let history = useHistory();
-
-    const [colorOpen, setColorOpen] = useState(false)
-
-    const { formData, setFormData } = useContext(FormContext)
-
-    const color = ['#6E3Cf4', '#F1C335', '#F09052', '#54BAAE', '#2D5Cf6', '#B835F6'];
-
-    const changeColor = (value) => {
-
-
-        setFormData(prevState => ({
-            ...prevState,
-            color: value
-
-        }))
-
-        setColorOpen(false)
-
-
-
-    }
-
-
-    const saveForm = () => {
-        const formdataRef = fireDb.ref("currentUser").child('Forms');
-        try {
-            formdataRef.push(formData)
-
-            history.push("/form/a/2255")
-        } catch (error) {
-            console.log(error);
-        }
-    }
-
-
-
+export const SubmittedFormHeader = () => {
     return (
         <div class="border-b shadow-lg " >
 
@@ -52,27 +10,14 @@ export const FormHeader = () => {
                     <Link to="/" className="mx-4 my-auto text-gray-800"><svg class="text-gray-800 h-4 w-4 inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
                     </svg></Link>
-                    {formData.title ? formData.title : "Untitled Form"}
+                   "Untitled Form"
                 </div>
                 <nav className="w-auto text-gray-700">
-                    <span className="mx-2 p-2 rounded-full relative hover:bg-gray-300 " onClick={() => { setColorOpen(!colorOpen) }}><svg className=" h-6 inline " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style={{ color: formData.color }}>
+                    <span className="mx-2 p-2 rounded-full relative hover:bg-gray-300 "><svg className=" h-6 inline " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" >
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
                     </svg>
 
                     </span >
-
-
-                    {colorOpen ? <div id="usermenu" class="absolute    z-40  w-auto " style={{ right: "25px", top: '65px' }}>
-                        {color.map(color => {
-                            return <span onClick={() => { changeColor(color) }} className="w-auto mx-2 p-2 cursor-pointer  " style={{ backgroundColor: color, right: "25px", top: '75px' }}>{color}</span>
-                        })}
-                    </div> : null}
-
-
-
-
-
-
 
 
                     <span className="mx-2 p-2  rounded-full hover:bg-gray-300">
@@ -89,7 +34,7 @@ export const FormHeader = () => {
 
 
                     <span className="mx-4">
-                        <button onChange={saveForm} class="inline-flex  text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" style={{ backgroundColor: formData.color }} >Save</button></span>
+                        <Link to="/form/a/fill/5524" class="inline-flex  text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" >Share</Link></span>
 
 
 
@@ -113,11 +58,8 @@ export const FormHeader = () => {
                 <div className="mx-4 p-4 py-2 text-blue-500 font-semibold border-blue-600 border-b-4 cursor-pointer ">Questions</div>
                 <div className="mx-4 p-4 py-2  cursor-pointer ">Responses</div>
             </div>
-
-
-
-
         </div >
+
 
 
 
