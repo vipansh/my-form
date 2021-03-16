@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import { fireDb } from '../../firebase';
 
-export const FormHeader = () => {
+export const FormHeader = ({ id }) => {
     let history = useHistory();
 
     const [colorOpen, setColorOpen] = useState(false)
@@ -36,7 +36,7 @@ export const FormHeader = () => {
         try {
             formdataRef.push(formData)
 
-            history.push("/form/a/2255")
+            history.push(`/form/a/${id}`)
         } catch (error) {
             console.log(error);
         }

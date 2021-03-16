@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-export const SubmittedFormHeader = () => {
+export const SubmittedFormHeader = ({ id }) => {
     return (
         <div class="border-b shadow-lg " >
 
@@ -34,7 +34,7 @@ export const SubmittedFormHeader = () => {
 
 
                     <span className="mx-4">
-                        <Link to="/form/a/fill/5524" class="inline-flex  text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" >Share</Link></span>
+                        <Link to={`/form/b/fill/${id}`} class="inline-flex  text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg" >Share</Link></span>
 
 
 

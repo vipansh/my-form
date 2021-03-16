@@ -57,3 +57,13 @@ input:checked ~ .toggle__dot {
   transform: translateX(100%);
   background-color: #48bb78;
 }
+
+.form-container {
+  width: 50%;
+}
+
+@media (max-width: 640px) {
+  .form-container {
+    width: 100%;
+  }
+}

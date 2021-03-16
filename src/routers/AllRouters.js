@@ -23,7 +23,7 @@ export const AllRouters = () => {
                     <Switch>
                         <Route path="/logIn" component={LogIn} />
                         <PrivateRoute path="/" exact component={HomePage} />
-                        <Route path="/form/a/fill/:id" component={SharedFormPage} />
+                        <Route path="/form/b/fill/:id" component={SharedFormPage} />
                         <Route path="/form/a/:id" component={SubmittedFormPage} />
 
                         <Route path="/form" component={FormPage} exact />

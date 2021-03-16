@@ -18,16 +18,24 @@ export const FormPage = () => {
         question: "",
         questiontype: "",
         required: "",
-        options: [{ "option": null }]
+        options: [{ "option": null }],
     }])
 
     useEffect(() => {
+        var ID = function () {
+            let id = Math.random().toString(36).substr(2, 9);
+            return id
+        };
+
         setFormData(formData => {
             let value = {
+                createdBy: "currentUser",
+                uniqueID: ID(),
                 title: formData.title ? formData.title : "",
                 discription: formData.discription ? formData.discription : "",
                 color: formData.color ? formData.color : "",
-                content: [...allquestions]
+                content: [...allquestions] ? [...allquestions] : "",
+                responceList: []
             }
             return value
         })
@@ -41,7 +49,7 @@ export const FormPage = () => {
 
     return (
         <div>
-            <FormHeader />
+            <FormHeader id={formData.uniqueID} />
             <div className="bg-gray-400 h-auto min-h-screen py-4">
                 <FormBody />
                 {allquestions.map((data, i) => {

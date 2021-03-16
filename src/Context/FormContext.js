@@ -5,11 +5,16 @@ export const FormContext = React.createContext();
 
 export const FormProvider = ({ children }) => {
 
+
+   
+
     const [formData, setFormData] = useState([{
         title: "",
         discription: "",
         color: "red",
-        content: []
+        content: [],
+        
+
     }])
 
 

@@ -16,12 +16,6 @@ export const CheckBoxes = ({ value, id, data }) => {
 
     }, [questionArray])
 
-
-
-
-
-
-
     function handelAdd() {
         let values = [...questionArray]
         values.push({ option: null })
@@ -36,16 +30,12 @@ export const CheckBoxes = ({ value, id, data }) => {
     }
 
     function handelChange(e, index) {
-
-
-
         const values = [...questionArray]
 
+        console.log(values, index, id)
         values[index].option = e.target.value
+
         setquestionArray(values)
-
-
-
     }
 
     return (
@@ -54,7 +44,7 @@ export const CheckBoxes = ({ value, id, data }) => {
 
 
 
-            { questionArray.map((all, index) => <Boxes key={index} index={index} handelRemove={handelRemove} handelChange={handelChange} values={{ questionArray, setquestionArray }} allquestions={all} />)}
+            { questionArray.map((all, index) => <Boxes key={index} thisId={index} handelRemove={handelRemove} handelChange={handelChange} values={{ questionArray, setquestionArray }} allquestions={all} />)}
 
 
             <div onClick={() => { handelAdd() }} className="cursor-pointer mx-8 hover:underline"><svg className="w-8 h-8 inline  " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -74,7 +64,7 @@ export const CheckBoxes = ({ value, id, data }) => {
 
 
 
-const Boxes = ({ index, handelRemove, values, handelChange, allquestions }) => {
+const Boxes = ({ key, thisId, handelRemove, values, handelChange, allquestions }) => {
     const [checkboxValue, setCheckboxValue] = useState(false)
 
     const { questionArray, setquestionArray } = values
@@ -92,12 +82,12 @@ const Boxes = ({ index, handelRemove, values, handelChange, allquestions }) => {
                 </svg>}
                 </div>
 
-                <input type="text" class="inline  outline-none border border-gray-400 rounded py-1 px-2 w-2/3 bg-white text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline" value={allquestions.option} placeholder="placeholder" onChange={(e) => { handelChange(e, index) }} />
+                <input type="text" class="inline  outline-none border border-gray-400 rounded py-1 px-2 w-2/3 bg-white text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline" value={allquestions.option} placeholder="Options" onChange={(e) => { handelChange(e, thisId) }} />
             </label>
 
 
             {questionArray.length === 1 ? "" : <div className="  align-center mx-4 my-auto rounded-full p-4 hover:bg-gray-200 hover:text-red-600 "
-                onClick={() => { handelRemove(index) }}
+                onClick={() => { handelRemove(thisId) }}
             >
                 <svg className="w-8 text-gray-700 hover:text-red-600 " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
