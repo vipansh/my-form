@@ -15,7 +15,7 @@ export const FormHome = ({ data }) => {
     // title: ""
     // uniqueID: "0t80r7qmo
 
-    const [idOpen, setIdOpen] = useState(1)
+    const [idOpen, setIdOpen] = useState(2)
 
     const [questions, setquestions] = useState(data.content)
 
@@ -36,7 +36,7 @@ export const FormHome = ({ data }) => {
                         <button>Submit</button>
                     </div>
                 </div>
-                    : <Responses data={data.responceList} questions={questions} />
+                    : <Responses data={data} questions={questions} />
             }
             <center>This content is neither created nor endorsed by MeForm. Never subbmit your passwoed </center>
         </div >

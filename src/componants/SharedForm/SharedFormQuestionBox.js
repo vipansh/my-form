@@ -11,7 +11,7 @@ export const SharedFormQuestionBox = ({ data, color, id, value }) => {
     const updateResponce = (a, b) => {
         let newArr = [...responceList]
         console.log(newArr)
-        newArr[b] = a++
+        newArr[b] = ++a
         setresponceList(newArr)
     }
 
@@ -21,6 +21,7 @@ export const SharedFormQuestionBox = ({ data, color, id, value }) => {
         setidSelected(a)
         updateResponce(a, id)
 
+        console.log(++a,id)
     }
 
 

@@ -7,7 +7,6 @@ import { SubmitedForm } from './SubmitedForm'
 
 export const SharedForm = ({ data }) => {
 
-    console.log(data)
 
 
     const [formSubbmited, setformSubbmited] = useState(() => {
