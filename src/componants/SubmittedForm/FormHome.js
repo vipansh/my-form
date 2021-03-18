@@ -21,7 +21,7 @@ export const FormHome = ({ data }) => {
 
     return (
         <div className="bg-gray-300 min-h-screen font-bold ">
-            <SubmittedFormHeader id={data.uniqueID} value={{ idOpen, setIdOpen }} />
+            <SubmittedFormHeader id={data.uniqueID} value={{ idOpen, setIdOpen }} title={data.title} discription={data.discription} />
 
 
             {
@@ -36,7 +36,7 @@ export const FormHome = ({ data }) => {
                         <button>Submit</button>
                     </div>
                 </div>
-                    : <Responses data={data} questions={questions}  />
+                    : <Responses data={data} questions={questions} />
             }
             <center>This content is neither created nor endorsed by MeForm. Never subbmit your passwoed </center>
         </div >

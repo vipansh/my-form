@@ -14,7 +14,7 @@ export const ResponsesBox = ({ data, color, allData, index, responsesArr, totalV
     return (
 
         <div className="container mx-auto my-4  ">
-            <div className=" relative container mx-auto border-l-8 rounded-lg   my-8   p-4 shadow-sm bg-white border-blue-400 border flex justify-between" style={{ borderColor: ` ${color ? color : "#F1F1F0"}` }} >
+            <div className="  container mx-auto border-l-8 rounded-lg   my-8   p-4 shadow-sm bg-white border-blue-400 border flex justify-between" style={{ borderColor: ` ${color ? color : "#F1F1F0"}` }} >
 
 
                 <div className=" md:w-2/3 ">

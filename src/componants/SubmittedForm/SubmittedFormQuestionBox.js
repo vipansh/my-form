@@ -7,7 +7,7 @@ export const SubmittedFormQuestionBox = ({ data, color }) => {
     // required: true
     return (
         <div className="container mx-auto my-4 ">
-            <div className=" relative container mx-auto border-l-8 rounded-lg   my-8  p-4 shadow-sm bg-white border-blue-400 border " style={{ borderColor: ` ${color ? color : "#F1F1F0"}` }} >
+            <div className="  container mx-auto border-l-8 rounded-lg   my-8  p-4 shadow-sm bg-white border-blue-400 border " style={{ borderColor: ` ${color ? color : "#F1F1F0"}` }} >
                 <div class=" p-4   text-gray-700 leading-tight " >{data.question}
                     {data.required ? <span className="mx-8  text-red-500">* required</span> : null}</div>
 
