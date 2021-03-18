@@ -27,13 +27,14 @@ export const LogIn = ({ history }) => {
         [history]
     );
 
-    
+
 
     if (currentUser) {
         return <Redirect to="/" />;
     }
 
     return (
+
         <div class="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
             <div
                 class="max-w-screen-xl m-0 sm:m-20 bg-white shadow sm:rounded-lg flex justify-center flex-1"
@@ -48,7 +49,7 @@ export const LogIn = ({ history }) => {
                     <div class="mt-12 flex flex-col items-center">
                         <h1 class="text-2xl xl:text-3xl font-extrabold">
                             Sign up for Google Form
-          </h1>
+                          </h1>
                         <div class="w-full flex-1 mt-8">
                             <div class="flex flex-col items-center">
                                 <button

@@ -57,7 +57,7 @@ export const FormToolBar = ({ value, id, isThisActive }) => {
 
     }
     return (
-        <div className="absolute flex flex-col bg-white rounded-lg" style={{ right: "-87px", top: "3px" }}>
+        <div className="flex flex-row md:flex-col w-full md:w-auto  md:my-4  fixed bottom-0 left-0  md:ml-16 rounded-lg bg-gray-200 justify-around md:static ">
             <SavePopUp show={{ saveWorning, setSaveWorning }} saveForm={submitForm} />
 
             <div class="flex items-center cursor-pointer rounded-md m-2 " onClick={() => { addOne() }}><span className="rounded-full hover:bg-gray-400 p-2"><svg className="h-8 inline " xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">

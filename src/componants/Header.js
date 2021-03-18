@@ -2,9 +2,9 @@ import React from 'react'
 
 export const Header = () => {
     return (
-        <header class="border-b md:flex md:items-center md:justify-between p-4 pb-0 shadow-lg md:pb-4">
+        <header class="border-b flex md:items-center justify-between p-4 pb-0 shadow-lg md:pb-4">
 
-            <div class="flex items-center justify-between mb-4 md:mb-0 font-semibold">
+            <div class="flex items-center  mb-4 md:mb-0 font-semibold">
                 <div><svg className=" w-8 text-purple-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                 </svg></div>

@@ -57,7 +57,6 @@ export const FormPage = () => {
                         isThisActive={{ idOfActiveQue, setIdOfActiveQue }} color={formData.color} />
                 })}
             </div>
-            <button onClick={() => (console.log(formData))}>click me</button>
         </div>
     )
 }

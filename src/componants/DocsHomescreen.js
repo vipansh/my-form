@@ -11,7 +11,7 @@ export const DocsHomescreen = () => {
                     <FreeTamplate />
                 </div>
             </div>
-            <div class="  rounded-lg h-auto bg-white">
+            <div class="  rounded-lg md:h-auto bg-white ">
 
                 <div className="container mx-auto p-2">
                     <RecentForms />
