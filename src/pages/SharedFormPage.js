@@ -5,6 +5,10 @@ import { fireDb } from '../firebase'
 import { SharedForm } from '../componants/SharedForm/SharedForm'
 
 export const SharedFormPage = ({ match }) => {
+
+    // This is shared form an will be shown when user share link with someOne
+
+
     const id = match.params.id
 
 

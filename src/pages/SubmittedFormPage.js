@@ -8,6 +8,8 @@ export const SubmittedFormPage = ({ match }) => {
     const thisID = match.params.id
 
 
+    // this is the page where question and responces are shown
+
     const [allFormData, setallFormData] = useState()
     React.useEffect(() => {
 

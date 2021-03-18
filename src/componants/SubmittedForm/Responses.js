@@ -3,21 +3,22 @@ import { ResponsesBox } from './ResponsesBox';
 
 export const Responses = ({ data, questions }) => {
 
-    function transposeArray(array, arrayLength) {
-        var newArray = [];
-        for (var i = 0; i < array.length; i++) {
-            newArray.push([]);
-        };
+    // function transposeArray(array, arrayLength) {
+    //     const newArray = [];
+    //     for (var i = 0; i < array.length; i++) {
+    //         newArray.push([]);
+    //     };
 
-        for (var i = 0; i < array.length; i++) {
-            for (var j = 0; j < arrayLength; j++) {
-                newArray[j].push(array[i][j]);
-            };
-        };
+    //     for (var i = 0; i < array.length; i++) {
+    //         for (var j = 0; j < arrayLength; j++) {
+    //             newArray[j].push(array[i][j]);
+    //         };
+    //     };
 
-        return newArray;
-    }
-    let optionsLength = data
+    //     return newArray;
+    // }
+
+
 
 
     const [responsesArr, setResponsesArr] = useState(() => {
@@ -26,27 +27,26 @@ export const Responses = ({ data, questions }) => {
         for (let id in data.responceList) {
             todoList.push([...data.responceList[id]]);
         }
-
-        todoList = transposeArray(todoList, data.content.length)
+        todoList = todoList[0].map((_, colIndex) => todoList.map(row => row[colIndex]));
 
 
         return (todoList);
     })
 
+    const [totalAns, setTotalAns] = useState(() => {
 
-    const count = names =>
-        names.reduce((a, b) => ({
-            ...a,
-            [b]: (a[b] || 0) + 1
-        }), {}
-        ) // don't forget to initialize the accumulator
+        let todoList = []
+        for (let id in data.responceList) {
+            todoList.push([...data.responceList[id]]);
+        }
+
+
+
+        return (todoList.length);
+    })
+
 
     React.useEffect(() => {
-
-
-
-
-
         let chartarr = []
 
         for (let i = 0; i < data.content.length; i++) {
@@ -56,43 +56,33 @@ export const Responses = ({ data, questions }) => {
             const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
             let thisarray = (responsesArr[i])
 
-
-
-
-
-
-
-
-
-
         }
-
-
-
-
-
-
-        // const arr = []
-        // for (let i = 0; i < optionsLength; i++) {
-        //     const responceList = responsesArr[i][0]
-        //     arr.push(responceList)
-        // }
-        // console.log(arr)
-        // console.log(responsesArr)
-
     }, [])
 
+    const countOccurrences = arr => arr.reduce((prev, curr) => (prev[curr] = ++prev[curr] || 1, prev), {});
 
 
 
 
+    if (questions) {
 
 
+        return (
+            <div className=" container mx-auto">
+
+                <div className="">
+                    {questions.map((question, i) => {
+                        return <ResponsesBox key={i} data={question} color={data.color} allData={data} index={i} responsesArr={countOccurrences(responsesArr[i])} totalVote={totalAns} />
+                    })}
+                </div>
+
+            </div>
+        )
+    }
     return (
+
         <div>
-            {questions.map((question, i) => {
-                return <ResponsesBox data={question} color={data.color} allData={data} index={i} responsesArr={count(responsesArr[i])} />
-            })}
+            No Data subbmited Yet
         </div>
     )
 }

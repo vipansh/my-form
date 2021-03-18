@@ -26,7 +26,6 @@ export const RecentForms = () => {
     }, [])
 
 
-    console.log(allFormData)
 
     if (allFormData) {
 
