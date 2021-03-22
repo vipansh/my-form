@@ -9,7 +9,6 @@ export const NotActiveQuestion = ({ data, id, isThisActive, height }) => {
 
     function setThisActive() {
         setidOfActiveQue(id)
-        console.log(id)
     }
 
     const [options, setOptions] = useState(data.options)
@@ -18,7 +17,7 @@ export const NotActiveQuestion = ({ data, id, isThisActive, height }) => {
         <div onClick={() => { setThisActive() }}>
             <div className=" relative container mx-auto rounded-lg   my-8  p-4 shadow-sm bg-white">
                 <div className="flex">
-                    <div class="p-4 inline appearance-none  rounded w-1/2 text-gray-800   overflow-hidden font-semibold"
+                    <div className="p-4 inline appearance-none  rounded w-1/2 text-gray-800   overflow-hidden font-semibold"
 
 
                         style={{ height: height, resize: "none" }}
@@ -32,7 +31,7 @@ export const NotActiveQuestion = ({ data, id, isThisActive, height }) => {
 
 
                     <span className="w-1/3 aline-center m-auto">
-                        <div class="z-0 bg-gray-900 relative text-sm block w-full  rounded hover:bg-gray-800 py-1 px-4 text-gray-100" name="questionType" >
+                        <div className="z-0 bg-gray-900 relative text-sm block w-full  rounded hover:bg-gray-800 py-1 px-4 text-gray-100" name="questionType" >
                             {data.questiontype}
 
 
@@ -75,7 +74,7 @@ const Boxes = ({ values, questionType }) => {
 
 
     return (
-        <div class=" my-auto p-2  outline-none mx-4  rounded py-1 px-2 w-2/3 bg-white text-sm text-gray-800  focus:outline-none focus:shadow-outline align-center flex flex-row justify-start align-center" > <span className="w-6 h-6 border inline-block align-center mx-4 my-auto rounded-lg ">  </span ><span class="inline-flex justify-start align-center">{values ? values : "Option"}</span></div >
+        <div className=" my-auto p-2  outline-none mx-4  rounded py-1 px-2 w-2/3 bg-white text-sm text-gray-800  focus:outline-none focus:shadow-outline align-center flex flex-row justify-start align-center" > <span className="w-6 h-6 border inline-block align-center mx-4 my-auto rounded-lg ">  </span ><span className="inline-flex justify-start align-center">{values ? values : "Option"}</span></div >
 
 
     )

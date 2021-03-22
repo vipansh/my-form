@@ -16,7 +16,7 @@ export const ResponsesBox = ({ data, color, allData, index, responsesArr, totalV
 
 
                 <div className=" md:w-2/3 ">
-                    <div class=" p-4  w-full  text-gray-800 leading-tight text-4xl font-extrabold " >{data.question}
+                    <div className=" p-4  w-full  text-gray-800 leading-tight text-4xl font-extrabold " >{data.question}
                         {data.required ? <span className="mx-8  text-red-500 font-bold text-xl ">* required</span> : null}</div>
 
 
@@ -36,12 +36,11 @@ export const ResponsesBox = ({ data, color, allData, index, responsesArr, totalV
 
 
 const Box = ({ checkOption, volume }) => {
-    console.log(volume ? volume : "Nan")
     const [checkBox, setCheckBox] = React.useState(false)
 
     return (
-        <div class=" p-2 flex w-full">
-            <div class="inline  outline-none border rounded py-1 px-2 w-2/3 bg-white text-sm text-gray-700  "  > {checkOption}</div>   {(volume ? <span className="mx-4">{volume}</span> : <span className="mx-4">0</span>)}
+        <div className=" p-2 flex w-full">
+            <div className="inline  outline-none border rounded py-1 px-2 w-2/3 bg-white text-sm text-gray-700  "  > {checkOption}</div>   {(volume ? <span className="mx-4">{volume}</span> : <span className="mx-4">0</span>)}
         </div>
 
     )

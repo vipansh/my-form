@@ -149,5 +149,6 @@ input:checked ~ .toggle__dot {
 }
 
 .hide-error-msg {
+  top: 50px;
   left: -100%;
 }

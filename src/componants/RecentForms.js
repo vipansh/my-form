@@ -32,11 +32,11 @@ export const RecentForms = () => {
     if (allFormData) {
 
         return (
-            <div class="p-4 flex items-center justify-center ">
-                <div class="w-full max-w-screen-md mx-auto">
-                    <fieldset class="space-y-6">
-                        <div class="flex items-center justify-between py-4 border-b border-gray-300">
-                            <div class="sm:font-semibold font-extrabold text-2xl">Recent forms </div>
+            <div className="p-4 flex items-center justify-center ">
+                <div className="w-full max-w-screen-md mx-auto">
+                    <fieldset className="space-y-6">
+                        <div className="flex items-center justify-between py-4 border-b border-gray-300">
+                            <div className="sm:font-semibold font-extrabold text-2xl">Recent forms </div>
 
                             <div className="flex items-center justify-center"><span className=" hidden sm:inline hover:bg-gray-300 px-2 rounded-md cursor-pointer" > Owned by anyone <svg className="w-4 mx-2 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
@@ -47,7 +47,7 @@ export const RecentForms = () => {
                                 </svg></span>
                             </div>
                         </div>
-                        <div class="grid grid-col-2 gap-4">
+                        <div className="grid grid-col-2 gap-4">
                             {allFormData.map(data => {
                                 return <OldFormslist data={data} key={data.id} />
                             })}

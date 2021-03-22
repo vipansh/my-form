@@ -10,7 +10,6 @@ export const SharedFormQuestionBox = ({ data, color, id, value }) => {
 
     const updateResponce = (a, b) => {
         let newArr = [...responceList]
-        console.log(newArr)
         newArr[b] = ++a
         setresponceList(newArr)
     }
@@ -24,7 +23,6 @@ export const SharedFormQuestionBox = ({ data, color, id, value }) => {
         setidSelected(a)
         updateResponce(a, id)
 
-        console.log(++a, id)
     }
 
 
@@ -33,7 +31,7 @@ export const SharedFormQuestionBox = ({ data, color, id, value }) => {
     return (
         <div className="container mx-auto my-4 ">
             <div className=" relative container mx-auto border-l-8 rounded-lg   my-8  p-4 shadow-sm bg-white border-blue-400 border " style={{ borderColor: ` ${color ? color : "#F1F1F0"}` }} >
-                <div class=" p-4   text-gray-700 leading-tight " >{data.question}
+                <div className=" p-4   text-gray-700 leading-tight " >{data.question}
                     {data.required ? <span className="mx-8  text-red-500">* required</span> : null}</div>
 
 
@@ -61,14 +59,14 @@ const Box = ({ checkOption, updateResponce, handelChange, index, isSelected }) =
     }, [handelChange])
 
     return (
-        // <label class={`"flex items-center mt-3 py-5 hover:shadow-2xl px-6 border-2  rounded-md shadow-xl  transition-all duration-500 bg-white w-full  " ${checkBox ? " border-green-500" : "  border-gray-200"}`}>
-        //     <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600" onClick={() => handelChange(index)} checked={checkBox} /><span class="ml-2 text-gray-700">{checkOption}</span>
+        // <label className={`"flex items-center mt-3 py-5 hover:shadow-2xl px-6 border-2  rounded-md shadow-xl  transition-all duration-500 bg-white w-full  " ${checkBox ? " border-green-500" : "  border-gray-200"}`}>
+        //     <input type="checkbox" className="form-checkbox h-5 w-5 text-green-600" onClick={() => handelChange(index)} checked={checkBox} /><span className="ml-2 text-gray-700">{checkOption}</span>
         // </label >
 
 
 
-        <label class={`flex items-center mt-3  w-full border p-2 transition-all duration-500 rounded-md   ${checkBox ? "border-green-500" : "border-gray-200"}`}>
-            <input type="checkbox" class="form-checkbox h-5 w-5 text-green-600" onClick={() => handelChange(index)} checked={checkBox} /><span class="ml-2 text-gray-700">{checkOption}</span>
+        <label className={`flex items-center mt-3  w-full border p-2 transition-all duration-500 rounded-md   ${checkBox ? "border-green-500" : "border-gray-200"}`}>
+            <input type="checkbox" className="form-checkbox h-5 w-5 text-green-600" onClick={() => handelChange(index)} checked={checkBox} /><span className="ml-2 text-gray-700">{checkOption}</span>
         </label>
     )
 }

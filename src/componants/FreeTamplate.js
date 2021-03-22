@@ -8,10 +8,10 @@ export const FreeTamplate = () => {
 
     return (
         <div>
-            <div class="p-4 flex items-center justify-center bg-gray-100  ">
-                <div class="w-full max-w-screen-md mx-auto">
-                    <fieldset class="space-y-6">
-                        <div class="flex items-center justify-between py-4 border-b border-gray-300">
+            <div className="p-4 flex items-center justify-center bg-gray-100  ">
+                <div className="w-full max-w-screen-md mx-auto">
+                    <fieldset className="space-y-6">
+                        <div className="flex items-center justify-between py-4 border-b border-gray-300">
                             <div className="sm:font-semibold font-extrabold text-2xl">Start a new form </div>
                             <div className="flex items-center justify-center"><span className="hover:bg-gray-400 p-2 rounded-md cursor-pointer hidden sm:block" >Tamplate Gallery <svg className="w-4 mx-2 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16V4m0 0L3 8m4-4l4 4m6 0v12m0 0l4-4m-4 4l-4-4" />
@@ -23,12 +23,12 @@ export const FreeTamplate = () => {
                             </div>
                         </div>
                         <Link to="/form">
-                            <div class="grid grid-col gap-6">
+                            <div className="grid grid-col gap-6">
                                 {formOptions.map((data, i) => {
                                     return (<div key={i}>
                                         <div className=" relative flex flex-col p-1 bg-white  rounded-lg shadow-md cursor-pointer 
                                     border-2  hover:border-blue-400  ">
-                                            <img src={process.env.PUBLIC_URL + '/ques.jpg'} alt="a" class="md:w-full md:h-auto rounded-lg" />
+                                            <img src={process.env.PUBLIC_URL + '/ques.jpg'} alt="a" className="md:w-full md:h-auto rounded-lg" />
                                             <span className="font-semibold">{data}</span>
                                         </div>
                                     </div>)

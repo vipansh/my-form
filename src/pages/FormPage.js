@@ -13,7 +13,6 @@ export const FormPage = () => {
     const [showError, setshowError] = iserror
     const [errorMessage, seterrorMessage] = msg
 
-    console.log(showError, errorMessage)
 
 
 
@@ -65,7 +64,6 @@ export const FormPage = () => {
                 })}
             </div>
 
-            <button onClick={() => { console.log(formData) }}>show</button>
         </div>
     )
 }

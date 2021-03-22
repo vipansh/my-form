@@ -119,9 +119,9 @@ export const FormToolBar = ({ value, id, isThisActive }) => {
                 }
             }
 
-            setSaveWarning(false)
 
         }
+        setSaveWarning(false)
     }
 
 

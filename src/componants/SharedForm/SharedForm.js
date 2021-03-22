@@ -11,7 +11,6 @@ export const SharedForm = ({ data }) => {
 
     const { currentUser } = useAuth()
 
-
     const [formSubbmited, setformSubbmited] = useState(() => {
         var retrievedObject = localStorage.getItem('form');
 
@@ -45,7 +44,8 @@ export const SharedForm = ({ data }) => {
 
             }
             else {
-                console.log(element.required, responceList[i], i)
+                checkRequired = false
+              
             }
         }
 
@@ -55,13 +55,11 @@ export const SharedForm = ({ data }) => {
                 setiserror(false)
 
             }, 3000);
-            console.log("fill required")
         }
         else {
-            const formdataRef = fireDb.ref(currentUser.uid).child('Forms');
+            const formdataRef = fireDb.ref(data.createdBy).child('Forms');
             const thisformref = formdataRef.child(data.id).child('responceList')
             thisformref.push(responceList)
-            console.log(responceList)
             setformSubbmited(true)
 
         }
@@ -91,7 +89,7 @@ export const SharedForm = ({ data }) => {
                     return <SharedFormQuestionBox id={i} data={question} color={data.color} value={{ responceList, setresponceList }} />
                 })}
                 <div className="container mx-auto ">
-                    <button onClick={() => { onSubmit() }} class="focus:outline-none  py-4 font-semibold focus:shadow  text-xl w-full md:w-auto bg-green-400 text-white px-16 transition-all duration-300 shadow-lg hover:shadow-xl to-green-500 rounded-lg">Submit </button>
+                    <button onClick={() => { onSubmit() }} className="focus:outline-none  py-4 font-semibold focus:shadow  text-xl w-full md:w-auto bg-green-400 text-white px-16 transition-all duration-300 shadow-lg hover:shadow-xl to-green-500 rounded-lg">Submit </button>
                 </div>
             </div>
             <center>This content is neither created nor endorsed by MeForm. Never subbmit your passwoed </center>

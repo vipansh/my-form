@@ -6,7 +6,6 @@ import { Responses } from './Responses'
 
 export const FormHome = ({ data }) => {
 
-    console.log(data)
 
     //     color: ""
     // content: [{…}]

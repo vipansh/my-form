@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import QRCode from 'react-qr-code';
+import { useAuth } from '../../Context/AuthContext';
 
 export const SubmittedFormHeader = ({ id, value, title, }) => {
     const { idOpen, setIdOpen } = value
@@ -8,12 +9,12 @@ export const SubmittedFormHeader = ({ id, value, title, }) => {
 
     const [showSideBar, setShowSideBar] = React.useState(false)
     return (
-        <div class="border-b shadow-lg " >
+        <div className="border-b shadow-lg " >
             {showSideBar ? <SideBar value={{ showSideBar, setShowSideBar }} id={id} /> : null}
 
-            <header class=" md:flex md:items-center md:justify-between p-4 pb-0  md:pb-4">
-                <div class=" md:flex md:items-center">
-                    <Link to="/" className="mx-4 my-auto text-gray-800"><svg class="text-gray-800 h-4 w-4 inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+            <header className=" md:flex md:items-center md:justify-between p-4 pb-0  md:pb-4">
+                <div className=" md:flex md:items-center">
+                    <Link to="/" className="mx-4 my-auto text-gray-800"><svg className="text-gray-800 h-4 w-4 inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
                     </svg></Link>
                     {title.length > 0 ? title : "Untitled Form"}
@@ -23,13 +24,13 @@ export const SubmittedFormHeader = ({ id, value, title, }) => {
 
 
                     <button className="mx-4 my-4 inline-flex  text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg " onClick={() => { setShowSideBar(true) }}>
-                        {/* <Link to={`/form/b/fill/${id}`} class="" >Share</Link></button> */}
+                        {/* <Link to={`/form/b/fill/${id}`} className="" >Share</Link></button> */}
 
 Share</button>
 
 
                     <span>
-                        <img alt="Placeholder" class="inline mx-4 rounded-full" src="https://picsum.photos/32/32/?random" />
+                        <img alt="Placeholder" className="inline mx-4 rounded-full" src="https://picsum.photos/32/32/?random" />
 
                     </span>
 
@@ -65,22 +66,25 @@ Share</button>
 
 
 const SideBar = ({ value, id }) => {
+    const { currentUser } = useAuth()
+
+
 
     const domain = window.location.hostname
 
     const { showSideBar, setShowSideBar } = value
-    const tourl = `https%3A%2F%2F${domain}%2Fform%2Fb%2Ffill%2F${id}`
-    const text = `Fill%20this%20survey%20https%3A%2F%2F${domain}%2Fform%2Fb%2Ffill%2F${id}`
+    const tourl = `https%3A%2F%2F${domain}%2Fform%2Fb%2Ffill%2F${id}%2F${currentUser.uid}`
+    const text = `Fill%20this%20survey%20${tourl}`
     return (
         <transition name="slide z-50 slide-enter-active transition-slow ease-in transition-transform slide-enter ">
             <div v-if="showmenu">
-                <button onClick={() => { setShowSideBar(false) }} class="fixed top-0 right-0 bottom-0 left-0 h-full w-full bg-black opacity-50">X</button>
-                <div class=" md:w-1/2  w-10/12 min-h-screen p-8 bg-gray-200 fixed right-0 top-0 shadow-2xl ease-in-out  transition-transform transition-medium">
+                <button onClick={() => { setShowSideBar(false) }} className="fixed top-0 right-0 bottom-0 left-0 h-full w-full bg-black opacity-50">X</button>
+                <div onClick={() => { setShowSideBar(false) }} className=" md:w-1/2  w-10/12 min-h-screen p-8 bg-gray-200 fixed right-0 top-0 shadow-2xl ease-in-out  transition-transform transition-medium">
 
 
-                    <p class="md:mt-32 text-center  text-gray-600 flex flex-col justify-center items-center  text-xl" >
+                    <p className="md:mt-32 text-center  text-gray-600 flex flex-col justify-center items-center  text-xl" >
 
-                        <a href={`/form/b/fill/${id}`} target="_blank" rel="noreferrer noopener">link to form</a>
+                        <a href={`/form/b/fill/${id}/${currentUser.uid}`} target="_blank" rel="noreferrer noopener">link to form</a>
 
 
                         <a href={`https://api.whatsapp.com/send?text=${text}`} target="_blank" rel="noreferrer noopener" aria-label="Share on WhatsApp" title="Share on WhatsApp" className="block py-3 px-2 my-2 bg-green-300 text-gray-800 rounded-lg font-bold  border border-green-600 w-64"> <svg className="w-4 h-4 inline mx-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.1 3.9C17.9 1.7 15 .5 12 .5 5.8.5.7 5.6.7 11.9c0 2 .5 3.9 1.5 5.6L.6 23.4l6-1.6c1.6.9 3.5 1.3 5.4 1.3 6.3 0 11.4-5.1 11.4-11.4-.1-2.8-1.2-5.7-3.3-7.8zM12 21.4c-1.7 0-3.3-.5-4.8-1.3l-.4-.2-3.5 1 1-3.4L4 17c-1-1.5-1.4-3.2-1.4-5.1 0-5.2 4.2-9.4 9.4-9.4 2.5 0 4.9 1 6.7 2.8 1.8 1.8 2.8 4.2 2.8 6.7-.1 5.2-4.3 9.4-9.5 9.4zm5.1-7.1c-.3-.1-1.7-.9-1.9-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1s-1.2-.5-2.3-1.4c-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6s.3-.3.4-.5c.2-.1.3-.3.4-.5.1-.2 0-.4 0-.5C10 9 9.3 7.6 9 7c-.1-.4-.4-.3-.5-.3h-.6s-.4.1-.7.3c-.3.3-1 1-1 2.4s1 2.8 1.1 3c.1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.3-.3-.4-.6-.5z"></path></svg>Whatsapp</a>

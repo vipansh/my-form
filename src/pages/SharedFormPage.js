@@ -11,9 +11,7 @@ export const SharedFormPage = ({ match }) => {
     const { currentUser } = useAuth()
 
 
-    const id = match.params.id
-
-
+    const uid = match.params.uid
     const thisID = match.params.id
 
 
@@ -21,7 +19,7 @@ export const SharedFormPage = ({ match }) => {
     React.useEffect(() => {
 
 
-        const todoRef = fireDb.ref(currentUser.uid).child("Forms");
+        const todoRef = fireDb.ref(uid).child("Forms");
         todoRef.on('value', (snapshot) => {
             const todos = snapshot.val();
             const todoList = [];

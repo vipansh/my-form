@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { ResponsesBox } from './ResponsesBox';
 
 export const Responses = ({ data, questions }) => {
@@ -39,7 +39,6 @@ export const Responses = ({ data, questions }) => {
         return (todoList.length);
     })
 
-    console.log(data.responceList, "aaaa")
 
     React.useEffect(() => {
         let chartarr = []
