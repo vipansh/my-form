@@ -33,8 +33,6 @@ export const SharedFormPage = ({ match }) => {
                     data.uniqueID === thisID)
 
             })
-
-
             setallFormData(newArr);
 
         });

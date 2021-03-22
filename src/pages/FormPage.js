@@ -28,7 +28,7 @@ export const FormPage = () => {
     }
 
     const [allQuestions, setAllQuestions] = useState(
-        [tamplet, tamplet]
+        [tamplet]
 
     )
 

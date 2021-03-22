@@ -18,7 +18,7 @@ export const FormProvider = ({ children }) => {
         discription: "",
         color: "gray",
         content: [],
-        createdBy: currentUser ? currentUser.uid : "currentuser",
+        createdBy: currentUser.uid,
         uniqueID: ID(),
         responceList: []
     })

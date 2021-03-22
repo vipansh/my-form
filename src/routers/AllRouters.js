@@ -20,22 +20,22 @@ export const AllRouters = () => {
         <Router>
 
             <AuthProvider>
-                <FormProvider>
 
-                    <Switch>
-                        <Route path="/logIn" component={LogIn} />
-                        <Route path="/form/b/fill/:id/:uid" component={SharedFormPage} />
+                <Switch>
+                    <Route path="/logIn" component={LogIn} />
+                    <Route path="/form/b/fill/:id/:uid" component={SharedFormPage} />
 
-                        <PrivateRoute path="/" exact component={HomePage} />
+                    <PrivateRoute path="/" exact component={HomePage} />
+                    <FormProvider>
                         <PrivateRoute path="/form/a/:id" component={SubmittedFormPage} />
 
                         <ErrorProvider>
                             <PrivateRoute path="/form" component={FormPage} exact />
                         </ErrorProvider>
+                    </FormProvider  >
 
 
-                    </Switch>
-                </FormProvider  >
+                </Switch>
             </AuthProvider>
 
         </Router >

@@ -45,7 +45,7 @@ export const SharedForm = ({ data }) => {
             }
             else {
                 checkRequired = false
-              
+
             }
         }
 
@@ -57,11 +57,14 @@ export const SharedForm = ({ data }) => {
             }, 3000);
         }
         else {
+            console.log(data)
             const formdataRef = fireDb.ref(data.createdBy).child('Forms');
             const thisformref = formdataRef.child(data.id).child('responceList')
             thisformref.push(responceList)
             setformSubbmited(true)
+            var retrievedObject = localStorage.getItem('form');
 
+            localStorage.setItem("form", retrievedObject ? JSON.stringify([...retrievedObject, data.uniqueID]) : JSON.stringify([data.uniqueID]))
         }
 
 
