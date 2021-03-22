@@ -143,7 +143,7 @@ export const LogIn = ({ history }) => {
                                             <path d="M20 8v6M23 11h-6" />
                                         </svg>
                                         <span className="ml-3">
-                                            Sign Up
+                                            Sign Up/Log In
                 </span>
                                     </button>
 
