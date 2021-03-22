@@ -1,62 +1,71 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { FormBody } from '../componants/Forms/FormBody'
-import { FormHeader } from '../componants/Forms/FormHeader'
-import { QuestionBox } from '../componants/Forms/QuestionBox'
-import { SavePopUp } from '../componants/Forms/SavePopUp'
-import { FormContext, FormProvider } from '../Context/FormContext'
+import { BoxQuestionSingle } from '../componants/FormModule/BoxQuestionSingle'
+import { EnterFormTitle } from '../componants/FormModule/EnterFormTitle'
+import { FormHeader } from '../componants/FormModule/FormHeader'
+import { SaveError } from '../componants/FormModule/SaveErrors'
+import { ErrorContext } from '../Context/ErrorContext'
+import { FormContext } from '../Context/FormContext'
 
 export const FormPage = () => {
     const { formData, setFormData } = useContext(FormContext)
+    const { iserror, msg } = useContext(ErrorContext)
+
+    const [showError, setshowError] = iserror
+    const [errorMessage, seterrorMessage] = msg
+
+    console.log(showError, errorMessage)
+
+
+
+
+
+
 
     const tamplet = {
         question: "",
-        questiontype: "",
-        required: "",
-        options: [{ "option": null }]
+        questiontype: "Check Box",
+        required: false,
+        options: ["", ""]
     }
-    const [allquestions, setAllquestions] = useState([{
-        question: "",
-        questiontype: "",
-        required: "",
-        options: [{ "option": null }],
-    }])
+
+    const [allQuestions, setAllQuestions] = useState(
+        [tamplet, tamplet]
+
+    )
+
+
+    const [idOfActiveQue, setidOfActiveQue] = useState(0)
+
 
     useEffect(() => {
-        var ID = function () {
-            let id = Math.random().toString(36).substr(2, 9);
-            return id
-        };
-
         setFormData(formData => {
-            let value = {
-                createdBy: "currentUser",
-                uniqueID: ID(),
-                title: formData.title ? formData.title : "",
-                discription: formData.discription ? formData.discription : "",
-                color: formData.color ? formData.color : "",
-                content: [...allquestions] ? [...allquestions] : "",
-                responceList: []
-            }
-            return value
+            return { ...formData, content: allQuestions }
         })
-    }, [allquestions])
+    }, [allQuestions])
 
-
-    const [idOfActiveQue, setIdOfActiveQue] = useState("0")
+    function changeColor(color) {
+        const formref = { ...formData }
+        formref.color = color
+        setFormData(formref)
+    }
 
 
 
 
     return (
         <div>
-            <FormHeader id={formData.uniqueID} />
+
+            <FormHeader id={formData.uniqueID} title={formData.title} changeColor={changeColor} formData={formData} />
             <div className="bg-gray-400 h-auto min-h-screen py-4">
-                <FormBody />
-                {allquestions.map((data, i) => {
-                    return <QuestionBox key={i} data={data} value={{ allquestions, setAllquestions }} id={i}
-                        isThisActive={{ idOfActiveQue, setIdOfActiveQue }} color={formData.color} />
+                <SaveError msg={errorMessage} show={showError} />
+                <EnterFormTitle />
+                {allQuestions.map((data, i) => {
+                    return <BoxQuestionSingle key={i} data={data} value={{ allQuestions, setAllQuestions }} id={i}
+                        color={formData.color} isThisActive={{ idOfActiveQue, setidOfActiveQue }} />
                 })}
             </div>
+
+            <button onClick={() => { console.log(formData) }}>show</button>
         </div>
     )
 }

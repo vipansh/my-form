@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 
 export const NotActiveQuestion = ({ data, id, isThisActive, height }) => {
 
-    const { idOfActiveQue, setIdOfActiveQue } = isThisActive
+    const { idOfActiveQue, setidOfActiveQue } = isThisActive
+
     const [questionArray, setquestionArray] = useState(data.options)
 
 
     function setThisActive() {
-        setIdOfActiveQue(id)
+        setidOfActiveQue(id)
+        console.log(id)
     }
 
     const [options, setOptions] = useState(data.options)
@@ -72,16 +74,10 @@ const Boxes = ({ values, questionType }) => {
 
 
 
-    if (questionType != "Short Answer")
-        return (
+    return (
+        <div class=" my-auto p-2  outline-none mx-4  rounded py-1 px-2 w-2/3 bg-white text-sm text-gray-800  focus:outline-none focus:shadow-outline align-center flex flex-row justify-start align-center" > <span className="w-6 h-6 border inline-block align-center mx-4 my-auto rounded-lg ">  </span ><span class="inline-flex justify-start align-center">{values ? values : "Option"}</span></div >
 
 
-            <div class=" my-auto p-2  outline-none mx-4  rounded py-1 px-2 w-2/3 bg-white text-sm text-gray-800  focus:outline-none focus:shadow-outline align-center" > <span className="w-6 h-6 border inline-block align-center mx-4 my-auto rounded-lg ">  </span ><span class="inline-flex justify-start align-center">{values.option ? values.option : "Option"}</span></div >
+    )
 
-
-        )
-    else {
-        return(
-        <div class=" my-auto p-2  outline-none mx-4  rounded py-1 px-2 w-2/3 bg-white text-sm text-gray-800  focus:outline-none focus:shadow-outline align-center" > <span className="w-6 h-6 border inline-block align-center mx-4 my-auto rounded-lg ">  </span ><span class="inline-flex justify-start align-center">Answer</span></div >)
-    }
 }

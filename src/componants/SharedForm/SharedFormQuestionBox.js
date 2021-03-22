@@ -21,7 +21,7 @@ export const SharedFormQuestionBox = ({ data, color, id, value }) => {
         setidSelected(a)
         updateResponce(a, id)
 
-        console.log(++a,id)
+        console.log(++a, id)
     }
 
 
@@ -68,7 +68,7 @@ const Box = ({ checkOption, updateResponce, handelChange, index, isSelected }) =
             </svg>}
 
             </div>
-            <div class="inline  outline-none border border-gray-400 rounded py-1 px-2 w-2/3 bg-white text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline"  >  {checkOption.option}  </div>
+            <div class="inline  outline-none border border-gray-400 rounded py-1 px-2 w-2/3 bg-white text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:shadow-outline"  >  {checkOption}  </div>
         </label>
 
     )

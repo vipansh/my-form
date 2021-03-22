@@ -1,32 +1,21 @@
 import React, { useState, useContext } from 'react'
-import { FormContext } from '../../Context/FormContext'
 import {
     Link,
     useHistory
 } from "react-router-dom";
 import { fireDb } from '../../firebase';
 
-export const FormHeader = ({ id }) => {
+export const FormHeader = ({ title, id, thiscolor, changeColor, formData }) => {
     let history = useHistory();
 
     const [colorOpen, setColorOpen] = useState(false)
 
-    const { formData, setFormData } = useContext(FormContext)
 
     const color = ['#6E3Cf4', '#F1C335', '#F09052', '#54BAAE', '#2D5Cf6', '#B835F6'];
 
-    const changeColor = (value) => {
-
-
-        setFormData(prevState => ({
-            ...prevState,
-            color: value
-
-        }))
-
+    const changeThisColor = (value) => {
+        changeColor(value)
         setColorOpen(false)
-
-
 
     }
 
@@ -52,7 +41,7 @@ export const FormHeader = ({ id }) => {
                     <Link to="/" className="mx-4 my-auto text-gray-800"><svg class="text-gray-800 h-4 w-4 inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
                     </svg></Link>
-                    {formData.title ? formData.title : "Untitled Form"}
+                    {title ? title : "Untitled Form"}
                 </div>
 
 
@@ -68,7 +57,7 @@ export const FormHeader = ({ id }) => {
 
                     {colorOpen ? <div id="usermenu" class="absolute    z-40  w-auto " style={{ right: "25px", top: '65px' }}>
                         {color.map(color => {
-                            return <span onClick={() => { changeColor(color) }} className="w-auto mx-2 p-2 cursor-pointer  block my-1 " style={{ backgroundColor: color, right: "25px", top: '75px' }}>{color}</span>
+                            return <span onClick={() => { changeThisColor(color) }} className="w-auto mx-2 p-2 cursor-pointer  block my-1 " style={{ backgroundColor: color, right: "25px", top: '75px' }}>{color}</span>
                         })}
                     </div> : null}
 

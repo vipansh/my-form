@@ -6,9 +6,7 @@ export const ResponsesBox = ({ data, color, allData, index, responsesArr, totalV
     // questiontype: "Multiple Choice"
     // required: true
 
-    console.log(responsesArr)
 
-    console.log(responsesArr[0])
 
 
     return (
@@ -43,7 +41,7 @@ const Box = ({ checkOption, volume }) => {
 
     return (
         <div class=" p-2 flex w-full">
-            <div class="inline  outline-none border rounded py-1 px-2 w-2/3 bg-white text-sm text-gray-700  "  > {checkOption.option}</div>   {(volume ? <span className="mx-4">{volume}</span> : <span className="mx-4">0</span>)}
+            <div class="inline  outline-none border rounded py-1 px-2 w-2/3 bg-white text-sm text-gray-700  "  > {checkOption}</div>   {(volume ? <span className="mx-4">{volume}</span> : <span className="mx-4">0</span>)}
         </div>
 
     )

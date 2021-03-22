@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react'
 import { FormContext } from '../../Context/FormContext'
 
 
-export const FormBody = () => {
+export const EnterFormTitle = () => {
 
     const [formTitle, setFormTitle] = useState("")
     const [formDiscreption, setformDiscreption] = useState("")
@@ -11,9 +11,10 @@ export const FormBody = () => {
 
     const { formData, setFormData } = useContext(FormContext)
 
+
+
+
     function handelchange(e) {
-
-
         setFormData(prevState => ({
             ...prevState,
             [e.target.name]: e.target.value

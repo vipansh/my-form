@@ -6,6 +6,7 @@ import { Responses } from './Responses'
 
 export const FormHome = ({ data }) => {
 
+    console.log(data)
 
     //     color: ""
     // content: [{…}]
@@ -36,8 +37,13 @@ export const FormHome = ({ data }) => {
                         <button>Submit</button>
                     </div>
                 </div>
-                    : <Responses data={data} questions={questions} />
+                    :
+                    (data.responceList ? < Responses data={data} questions={questions} /> : <div className="flex justify-center">
+                        No Data subbmited Yet
+                </div>
+                    )
             }
+
             <center>This content is neither created nor endorsed by MeForm. Never subbmit your passwoed </center>
         </div >
     )

@@ -1,45 +1,33 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, USeEffect } from 'react'
 
-export const DeleteQuestionBox = ({ value, id, data }) => {
-
-    const { allquestions, setAllquestions } = value
+export const OperationBoxForQuestion = ({ value, id, data }) => {
+    const { allQuestions, setAllQuestions } = value
 
     const [required, setRequired] = useState(false)
-    const [deleteMsg, setdeleteMsg] = useState("Delete")
-    useEffect(() => {
-        const updatedData = allquestions.map((data, i) => id === i ?
-            Object.assign(data, { required: required }) : data)
-        setAllquestions(updatedData)
-    }, [required])
 
-    function removeOne() {
-        if (allquestions.length !== 1) {
-            let values = [...allquestions]
-            values.splice(id, 1)
-            setAllquestions(values)
-        }
-        else {
-            setdeleteMsg("Form Can't be empty")
-            setInterval(() => { setdeleteMsg("Delete") }, 3000)
-        }
-    }
 
     function dublicateOne() {
-        const tamplet = {
-            question: data.question,
-            questiontype: data.questiontype,
-            required: data.required,
-            options: [...data.options]
-        }
-        let values = [...allquestions, tamplet]
-
-        setAllquestions(allquestions => {
-            return [...allquestions, tamplet]
+        setAllQuestions(allQuestions => {
+            return [...allQuestions, data]
         })
-        // setIdOfActiveQue(allquestions.length)
+    }
+    function removeOne(index) {
+        let filteredQuestion = [...allQuestions]
+        filteredQuestion.splice(index, 1)
+        setAllQuestions(filteredQuestion)
     }
 
 
+
+    function changeRequired(id) {
+        setRequired(!required)
+        let questionArray = [...allQuestions]
+        questionArray = questionArray.map((x, i) => (i === id ? { ...x, required: !required } : { ...x }))
+        setAllQuestions(questionArray)
+    }
+
+
+    console.log(allQuestions.length)
     return (
         <div className="flex justify-end">
             <div class="flex items-center cursor-pointer rounded-md hover:text-gray-900" onClick={() => { dublicateOne() }}>
@@ -49,9 +37,9 @@ export const DeleteQuestionBox = ({ value, id, data }) => {
 
 
             </div>
-            <div class="flex items-center cursor-pointer rounded-md m-4" onClick={() => { removeOne() }}>  <span class=" text-red-300 hover:text-red-800  text-left  px-4 py-1"  > <svg className="h-8 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            {allQuestions.length >= 2 ? <div class="flex items-center cursor-pointer rounded-md m-4" onClick={() => { removeOne(id) }}>  <span class=" text-red-300 hover:text-red-800  text-left  px-4 py-1"  > <svg className="h-8 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-            </svg>{deleteMsg}</span></div>
+            </svg>Delete</span></div> : ""}
 
 
             <div class="m-4 flex items-center cursor-pointer rounded-md">
@@ -60,7 +48,7 @@ export const DeleteQuestionBox = ({ value, id, data }) => {
                     class="flex items-center cursor-pointer"
                 >
                     <div class="relative">
-                        <input id="toogleA" type="checkbox" class="hidden" checked={required} onChange={() => { setRequired(!required) }} />
+                        <input id="toogleA" type="checkbox" class="hidden" checked={required} onChange={() => { changeRequired(id) }} />
                         <div
                             class="toggle__line w-10 h-4 bg-gray-400 rounded-full shadow-inner"
                         ></div>
@@ -77,5 +65,6 @@ export const DeleteQuestionBox = ({ value, id, data }) => {
 
             </div>
         </div>
+
     )
 }

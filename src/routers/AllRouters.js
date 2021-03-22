@@ -5,6 +5,7 @@ import {
     Route,
 } from "react-router-dom";
 import { AuthProvider } from "../Context/AuthContext";
+import { ErrorProvider } from "../Context/ErrorContext";
 import { FormProvider } from "../Context/FormContext";
 import { FormPage } from "../pages/FormPage"
 import { HomePage } from "../pages/HomePage"
@@ -20,13 +21,16 @@ export const AllRouters = () => {
 
             <AuthProvider>
                 <FormProvider>
+
                     <Switch>
                         <Route path="/logIn" component={LogIn} />
                         <PrivateRoute path="/" exact component={HomePage} />
                         <Route path="/form/b/fill/:id" component={SharedFormPage} />
                         <Route path="/form/a/:id" component={SubmittedFormPage} />
 
-                        <Route path="/form" component={FormPage} exact />
+                        <ErrorProvider>
+                            <Route path="/form" component={FormPage} exact />
+                        </ErrorProvider>
 
 
                     </Switch>

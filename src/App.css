@@ -136,3 +136,18 @@ input:checked ~ .toggle__dot {
   transform: translateX(100%);
   transition: all 150ms ease-in 0s;
 }
+
+.save-pop-up {
+  position: absolute;
+  top: -92px;
+  left: -268px;
+}
+
+.error-msg {
+  top: 50px;
+  left: 50px;
+}
+
+.hide-error-msg {
+  left: -100%;
+}

@@ -20,7 +20,6 @@ export const Responses = ({ data, questions }) => {
 
 
 
-
     const [responsesArr, setResponsesArr] = useState(() => {
 
         let todoList = []
@@ -28,8 +27,6 @@ export const Responses = ({ data, questions }) => {
             todoList.push([...data.responceList[id]]);
         }
         todoList = todoList[0].map((_, colIndex) => todoList.map(row => row[colIndex]));
-
-
         return (todoList);
     })
 
@@ -39,12 +36,10 @@ export const Responses = ({ data, questions }) => {
         for (let id in data.responceList) {
             todoList.push([...data.responceList[id]]);
         }
-
-
-
         return (todoList.length);
     })
 
+    console.log(data.responceList, "aaaa")
 
     React.useEffect(() => {
         let chartarr = []
@@ -63,8 +58,8 @@ export const Responses = ({ data, questions }) => {
 
 
 
+    if (data.responceList) {
 
-    if (questions) {
 
 
         return (

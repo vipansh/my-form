@@ -13,10 +13,7 @@ export const LogIn = ({ history }) => {
     const handleLogin = useCallback(
         async event => {
             event.preventDefault();
-
-
             const { email, password } = event.target.elements;
-
             try {
                 await login(email.value, password.value);
                 history.push("/");
