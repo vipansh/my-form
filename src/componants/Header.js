@@ -1,8 +1,11 @@
 import React from 'react'
+import { useAuth } from '../Context/AuthContext'
 
 export const Header = () => {
+    const { currentUser, logout } = useAuth()
+
     return (
-        <header className="border-b flex md:items-center justify-between p-4 pb-0 shadow-lg md:pb-4">
+        <header className="border-b md:flex md:items-center justify-between p-4 pb-0 shadow-lg md:pb-4">
 
             <div className="flex items-center  mb-4 md:mb-0 font-semibold">
                 <div><svg className=" w-8 text-purple-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -23,9 +26,10 @@ export const Header = () => {
                 <a className="flex items-center no-underline hover:underline text-black" href="/">
                     <img alt="Placeholder" className="block rounded-full" src="https://picsum.photos/32/32/?random" />
                     <p className="ml-2 text-sm font-semibold">
-                        Your Name
-                        </p>
+                        {currentUser.email}
+                    </p>
                 </a>
+                <button className=" md:mx-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" onClick={() => { logout() }}>Log Out</button>
             </nav>
         </header >
     )
