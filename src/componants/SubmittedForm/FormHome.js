@@ -33,9 +33,7 @@ export const FormHome = ({ data }) => {
                         return <SubmittedFormQuestionBox data={question} color={data.color} />
                     })}
 
-                    <div className="container mx-auto ">
-                        <button>Submit</button>
-                    </div>
+
                 </div>
                     :
                     (data.responceList ? < Responses data={data} questions={questions} /> : <div className="flex justify-center">

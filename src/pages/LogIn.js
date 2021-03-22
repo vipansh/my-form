@@ -7,7 +7,7 @@ import { Redirect, useHistory } from "react-router-dom"
 import { useAuth } from "../Context/AuthContext";
 export const LogIn = ({ history }) => {
 
-    const { currentUser, login } = useAuth()
+    const { currentUser, login, signup } = useAuth()
 
 
     const handleLogin = useCallback(
@@ -15,7 +15,21 @@ export const LogIn = ({ history }) => {
             event.preventDefault();
             const { email, password } = event.target.elements;
             try {
-                await login(email.value, password.value);
+                await signup(email.value, password.value);
+                history.push("/");
+            } catch (error) {
+                console.log(error);
+            }
+        },
+        [history]
+    );
+
+    const handleCreateUser = useCallback(
+        async event => {
+            event.preventDefault();
+            const { email, password } = event.target.elements;
+            try {
+                await signup(email.value, password.value);
                 history.push("/");
             } catch (error) {
                 console.log(error);
@@ -25,10 +39,11 @@ export const LogIn = ({ history }) => {
     );
 
 
-
     if (currentUser) {
         return <Redirect to="/" />;
     }
+
+
 
     return (
 
@@ -117,35 +132,46 @@ export const LogIn = ({ history }) => {
                                     required
                                     name="password"
                                 />
-                                <button
-                                    class="mt-5 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
-                                    type="submit">
-                                    <svg
-                                        class="w-6 h-6 -ml-2"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        strokeWidth="2"
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                    >
-                                        <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                                        <circle cx="8.5" cy="7" r="4" />
-                                        <path d="M20 8v6M23 11h-6" />
-                                    </svg>
-                                    <span class="ml-3">
-                                        Sign Up
+                                <div className="flex justify-around">
+                                    <button
+                                        class="m-2 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
+                                        type="submit">
+                                        <svg
+                                            class="w-6 h-6 -ml-2"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                        >
+                                            <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                                            <circle cx="8.5" cy="7" r="4" />
+                                            <path d="M20 8v6M23 11h-6" />
+                                        </svg>
+                                        <span class="ml-3">
+                                            Sign Up
                 </span>
-                                </button>
-                                <p class="mt-6 text-xs text-gray-600 text-center">
-                                    I agree to abide by templatana's
-                <a href="#" class="border-b border-gray-500 border-dotted">
-                                        Terms of Service
-                </a>
-                and its
-                <a href="#" class="border-b border-gray-500 border-dotted">
-                                        Privacy Policy
-                </a>
-                                </p>
+                                    </button>
+                                    <button
+                                        class="m-2 tracking-wide font-semibold bg-indigo-500 text-gray-100 w-full py-4 rounded-lg hover:bg-indigo-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
+                                        type="submit">
+                                        <svg
+                                            class="w-6 h-6 -ml-2"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                        >
+                                            <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                                            <circle cx="8.5" cy="7" r="4" />
+                                            <path d="M20 8v6M23 11h-6" />
+                                        </svg>
+                                        <span class="ml-3">
+                                            Create Account
+                </span>
+                                    </button>
+                                </div>
                             </form>
                         </div>
                     </div>

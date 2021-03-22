@@ -26,10 +26,10 @@ export const AllRouters = () => {
                         <Route path="/logIn" component={LogIn} />
                         <PrivateRoute path="/" exact component={HomePage} />
                         <Route path="/form/b/fill/:id" component={SharedFormPage} />
-                        <Route path="/form/a/:id" component={SubmittedFormPage} />
+                        <PrivateRoute path="/form/a/:id" component={SubmittedFormPage} />
 
                         <ErrorProvider>
-                            <Route path="/form" component={FormPage} exact />
+                            <PrivateRoute path="/form" component={FormPage} exact />
                         </ErrorProvider>
 
 

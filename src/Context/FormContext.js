@@ -1,9 +1,11 @@
 
 import React, { useState } from "react"
+import { useAuth } from "./AuthContext";
 
 export const FormContext = React.createContext();
 
 export const FormProvider = ({ children }) => {
+    const { currentUser } = useAuth()
 
     var ID = function () {
         let id = Math.random().toString(36).substr(2, 9);
@@ -16,7 +18,7 @@ export const FormProvider = ({ children }) => {
         discription: "",
         color: "gray",
         content: [],
-        createdBy: "currentUser",
+        createdBy: currentUser.uid,
         uniqueID: ID(),
         responceList: []
     })

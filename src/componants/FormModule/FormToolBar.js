@@ -5,11 +5,13 @@ import {
     useHistory,
 } from "react-router-dom";
 import { ErrorContext } from '../../Context/ErrorContext';
+import { useAuth } from '../../Context/AuthContext';
 
 
 
 export const FormToolBar = ({ value, id, isThisActive }) => {
     let history = useHistory();
+    const { currentUser } = useAuth()
 
 
     const { iserror, msg } = useContext(ErrorContext)
@@ -102,7 +104,7 @@ export const FormToolBar = ({ value, id, isThisActive }) => {
 
             }
             if (allClear) {
-                const formdataRef = fireDb.ref("currentUser").child('Forms');
+                const formdataRef = fireDb.ref(currentUser.uid).child('Forms');
                 try {
                     formdataRef.push(formData)
 

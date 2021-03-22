@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useAuth } from '../../Context/AuthContext'
 import { fireDb } from '../../firebase'
 import { SaveError } from '../FormModule/SaveErrors'
 import { SubmittedFormQuestionBox } from '../SubmittedForm/SubmittedFormQuestionBox'
@@ -8,6 +9,7 @@ import { SubmitedForm } from './SubmitedForm'
 
 export const SharedForm = ({ data }) => {
 
+    const { currentUser } = useAuth()
 
 
     const [formSubbmited, setformSubbmited] = useState(() => {
@@ -56,7 +58,7 @@ export const SharedForm = ({ data }) => {
             console.log("fill required")
         }
         else {
-            const formdataRef = fireDb.ref("currentUser").child('Forms');
+            const formdataRef = fireDb.ref(currentUser.uid).child('Forms');
             const thisformref = formdataRef.child(data.id).child('responceList')
             thisformref.push(responceList)
             console.log(responceList)

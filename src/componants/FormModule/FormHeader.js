@@ -3,12 +3,14 @@ import {
     Link,
     useHistory
 } from "react-router-dom";
+import { useAuth } from '../../Context/AuthContext';
 import { fireDb } from '../../firebase';
 
 export const FormHeader = ({ title, id, thiscolor, changeColor, formData }) => {
     let history = useHistory();
 
     const [colorOpen, setColorOpen] = useState(false)
+    const { currentUser } = useAuth()
 
 
     const color = ['#6E3Cf4', '#F1C335', '#F09052', '#54BAAE', '#2D5Cf6', '#B835F6'];
@@ -21,7 +23,7 @@ export const FormHeader = ({ title, id, thiscolor, changeColor, formData }) => {
 
 
     const saveForm = () => {
-        const formdataRef = fireDb.ref("currentUser").child('Forms');
+        const formdataRef = fireDb.ref(currentUser.uid).child('Forms');
         try {
             formdataRef.push(formData)
 

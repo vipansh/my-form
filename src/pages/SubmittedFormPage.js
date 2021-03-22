@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { FormHome } from '../componants/SubmittedForm/FormHome'
+import { useAuth } from '../Context/AuthContext'
 
 import { fireDb } from '../firebase'
 
@@ -7,6 +8,7 @@ import { fireDb } from '../firebase'
 export const SubmittedFormPage = ({ match }) => {
     const thisID = match.params.id
 
+    const { currentUser } = useAuth()
 
     // this is the page where question and responces are shown
 
@@ -14,7 +16,7 @@ export const SubmittedFormPage = ({ match }) => {
     React.useEffect(() => {
 
 
-        const todoRef = fireDb.ref('currentUser').child("Forms");
+        const todoRef = fireDb.ref(currentUser.uid).child("Forms");
         todoRef.on('value', (snapshot) => {
             const todos = snapshot.val();
             const todoList = [];

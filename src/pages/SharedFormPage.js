@@ -3,10 +3,12 @@ import React, { useState } from 'react'
 import { fireDb } from '../firebase'
 
 import { SharedForm } from '../componants/SharedForm/SharedForm'
+import { useAuth } from '../Context/AuthContext'
 
 export const SharedFormPage = ({ match }) => {
 
     // This is shared form an will be shown when user share link with someOne
+    const { currentUser } = useAuth()
 
 
     const id = match.params.id
@@ -19,7 +21,7 @@ export const SharedFormPage = ({ match }) => {
     React.useEffect(() => {
 
 
-        const todoRef = fireDb.ref('currentUser').child("Forms");
+        const todoRef = fireDb.ref(currentUser.uid).child("Forms");
         todoRef.on('value', (snapshot) => {
             const todos = snapshot.val();
             const todoList = [];
