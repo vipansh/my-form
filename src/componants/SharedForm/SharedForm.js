@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { fireDb } from '../../firebase'
+import { SaveError } from '../FormModule/SaveErrors'
 import { SubmittedFormQuestionBox } from '../SubmittedForm/SubmittedFormQuestionBox'
 import { SubmittedFormTitle } from '../SubmittedForm/SubmittedFormTitle'
 import { SharedFormQuestionBox } from './SharedFormQuestionBox'
@@ -27,29 +28,44 @@ export const SharedForm = ({ data }) => {
         return val
     })
 
-    function updatestorage() {
-        var retrievedObject = JSON.parse(localStorage.getItem('form'));
 
-        if (retrievedObject) {
-
-            localStorage.setItem('form', JSON.stringify([...retrievedObject, data.uniqueID]));
-        }
-        else {
-            localStorage.setItem('form', JSON.stringify([data.uniqueID]));
-
-        }
-
-    }
-
-
+    const [iserror, setiserror] = useState(false)
 
     const onSubmit = () => {
-        const formdataRef = fireDb.ref("currentUser").child('Forms');
-        const thisformref = formdataRef.child(data.id).child('responceList')
-        thisformref.push(responceList)
-        console.log(responceList)
-        setformSubbmited(true)
-        updatestorage()
+
+        let checkRequired = false
+        for (let i = 0; i < data.content.length; i++) {
+            const element = data.content[i];
+
+
+            if (element.required && (responceList[i] === 0)) {
+                checkRequired = true
+
+            }
+            else {
+                console.log(element.required, responceList[i], i)
+            }
+        }
+
+        if (checkRequired) {
+            setiserror(true)
+            setTimeout(() => {
+                setiserror(false)
+
+            }, 3000);
+            console.log("fill required")
+        }
+        else {
+            const formdataRef = fireDb.ref("currentUser").child('Forms');
+            const thisformref = formdataRef.child(data.id).child('responceList')
+            thisformref.push(responceList)
+            console.log(responceList)
+            setformSubbmited(true)
+
+        }
+
+
+
     }
 
 
@@ -64,6 +80,7 @@ export const SharedForm = ({ data }) => {
     return (
         <div>
             <div className="mt-16">
+                <SaveError msg={"* marked fields are required"} show={iserror} />
 
                 <SubmittedFormTitle title={data.title} />
 
@@ -72,7 +89,7 @@ export const SharedForm = ({ data }) => {
                     return <SharedFormQuestionBox id={i} data={question} color={data.color} value={{ responceList, setresponceList }} />
                 })}
                 <div className="container mx-auto ">
-                    <button onClick={onSubmit}>Submit</button>
+                    <button onClick={() => { onSubmit() }} class="focus:outline-none  py-4 font-semibold focus:shadow  text-xl w-full md:w-auto bg-green-400 text-white px-16 transition-all duration-300 shadow-lg hover:shadow-xl to-green-500 rounded-lg">Submit </button>
                 </div>
             </div>
             <center>This content is neither created nor endorsed by MeForm. Never subbmit your passwoed </center>
