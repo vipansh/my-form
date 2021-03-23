@@ -7,7 +7,7 @@ I made this project to learn about firebase and CURD operation along with authen
 ![formhomescreen](https://user-images.githubusercontent.com/66291636/112180099-438c2700-8c21-11eb-9c36-2bbc83962c47.jpg)
 
 
-**This is how the page looks like where you have to enter questions for the form.
+** This is how the page looks like where you have to enter questions for the form.
 
 ![formpage](https://user-images.githubusercontent.com/66291636/112180629-bac1bb00-8c21-11eb-8ef3-93477ef57b4d.jpg)
 
