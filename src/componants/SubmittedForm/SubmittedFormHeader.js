@@ -82,7 +82,7 @@ const SideBar = ({ value, id }) => {
                 <div onClick={() => { setShowSideBar(false) }} className=" md:w-1/2  w-10/12 min-h-screen p-8 bg-gray-200 fixed right-0 top-0 shadow-2xl ease-in-out  transition-transform transition-medium">
 
 
-                    <p className="md:mt-32 text-center  text-gray-600 flex flex-col justify-center items-center  text-xl" >
+                    <p className="md:mt-16 text-center  text-gray-600 flex flex-col justify-center items-center  text-xl" >
 
                         <a href={`/form/b/fill/${id}/${currentUser.uid}`} target="_blank" rel="noreferrer noopener">link to form</a>
 
