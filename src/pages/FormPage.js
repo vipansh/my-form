@@ -8,6 +8,7 @@ import { FormContext } from '../Context/FormContext'
 
 export const FormPage = () => {
     const { formData, setFormData } = useContext(FormContext)
+    
     const { iserror, msg } = useContext(ErrorContext)
 
     const [showError, setshowError] = iserror

@@ -35,6 +35,7 @@ export const SharedForm = ({ data }) => {
     const onSubmit = () => {
 
         let checkRequired = false
+        
         for (let i = 0; i < data.content.length; i++) {
             const element = data.content[i];
 
