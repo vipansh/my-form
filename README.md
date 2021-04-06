@@ -1,26 +1,38 @@
-## Basic React & Tailwind Boilerplate template
 
-This is a boilerplate for creating a React App With Tailwind. 
+### Getting Started — Opening the App
 
-![reacttailwind](https://user-images.githubusercontent.com/36589645/64805221-2dbe9000-d5ae-11e9-8a4a-31a181db5647.gif)
+I made this project to learn about firebase and CURD operation along with authentication.
+
+**This is home page user can create form and view the result of old forms. 
+![formhomescreen](https://user-images.githubusercontent.com/66291636/112180099-438c2700-8c21-11eb-9c36-2bbc83962c47.jpg)
+
+
+** This is how the page looks like where you have to enter questions for the form.
+
+![formpage](https://user-images.githubusercontent.com/66291636/112180629-bac1bb00-8c21-11eb-8ef3-93477ef57b4d.jpg)
+
+**This is how the response page looks like where you can see the result of all answer subbmited
+
+![ansform](https://user-images.githubusercontent.com/66291636/112180929-f8bedf00-8c21-11eb-8e0f-d6dd2b02e1a2.jpg)
+
+
+**To share the form created. Click on share button and choose the most sutable option for you.
+![formshare](https://user-images.githubusercontent.com/66291636/112181151-2c016e00-8c22-11eb-98d4-087615687117.jpg)
+
+
+## Mobile design
+![mobileform](https://user-images.githubusercontent.com/66291636/112181198-37ed3000-8c22-11eb-896e-c2fa06c096ea.jpg)
+
+
+
 
 ## Installtion 
 
 ```
-git clone https://github.com/abhagsain/reacttailwindboilerplate.git
+git clone https://github.com/vipansh/my-form.git
 cd [folder name]
-npn run dev
+npn start
 compiles css into src/index.css folder & starts React project on PORT 3000
 ```
 
-## Installed packages
-- Concurrently [To run react & tailwind using one script]
-- Axios 
-- Autoprefixer
-- Postcss-cli
 
-## Note
-Make sure you delete .git file after downloading this repository. 
-
-## Scripts
-![scripts](https://user-images.githubusercontent.com/36589645/64803854-51340b80-d5ab-11e9-9b6a-c4179e7e0f41.PNG)
