@@ -35,14 +35,19 @@ export const SharedForm = ({ data }) => {
     const onSubmit = () => {
 
         let checkRequired = false
-        
+
         for (let i = 0; i < data.content.length; i++) {
             const element = data.content[i];
 
 
             if (element.required && (responceList[i] === 0)) {
+                setiserror(true)
+                setTimeout(() => {
+                    setiserror(false)
+    
+                }, 3000);
                 checkRequired = true
-
+                return
             }
             else {
                 checkRequired = false
@@ -58,7 +63,6 @@ export const SharedForm = ({ data }) => {
             }, 3000);
         }
         else {
-            console.log(data)
             const formdataRef = fireDb.ref(data.createdBy).child('Forms');
             const thisformref = formdataRef.child(data.id).child('responceList')
             thisformref.push(responceList)
