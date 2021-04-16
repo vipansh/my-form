@@ -28,6 +28,13 @@ export const SharedForm = ({ data }) => {
         }
         return val
     })
+    useEffect(() => {
+        let val = []
+        for (let i = 0; i < data.content.length; i++) {
+            val.push(0)
+        }
+        setresponceList(val)
+    }, [formSubbmited])
 
 
     const [iserror, setiserror] = useState(false)
@@ -67,7 +74,7 @@ export const SharedForm = ({ data }) => {
             const thisformref = formdataRef.child(data.id).child('responceList')
             thisformref.push(responceList)
             setformSubbmited(true)
-            var retrievedObject = localStorage.getItem('form');
+            var retrievedObject = JSON.parse(localStorage.getItem('form'));
 
             localStorage.setItem("form", retrievedObject ? JSON.stringify([...retrievedObject, data.uniqueID]) : JSON.stringify([data.uniqueID]))
         }
@@ -81,7 +88,7 @@ export const SharedForm = ({ data }) => {
 
 
     if (formSubbmited) {
-        return <div><SubmitedForm title={data.title} setformSubbmited={setformSubbmited} /></div>
+        return <div><SubmitedForm title={data.title} setformSubbmited={setformSubbmited}  id={data.uniqueID}/></div>
     }
 
 
