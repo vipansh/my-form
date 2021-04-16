@@ -49,6 +49,7 @@ export const FormHeader = ({ title, id, thiscolor, changeColor, formData }) => {
                         setshowError(false)
 
                     }, 3000);
+                    return
                 }
                 else {
                     let emptyOption = false
@@ -66,6 +67,7 @@ export const FormHeader = ({ title, id, thiscolor, changeColor, formData }) => {
                             setshowError(false)
 
                         }, 3000)
+                        return
                     }
 
                     else {

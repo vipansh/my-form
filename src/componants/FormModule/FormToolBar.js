@@ -81,7 +81,7 @@ export const FormToolBar = ({ value, id, isThisActive }) => {
                             return
                         }
                         else {
-                            let allClear = true
+                             allClear = true
 
                         }
                     }
@@ -89,13 +89,13 @@ export const FormToolBar = ({ value, id, isThisActive }) => {
 
                 }
             }
+           
             if (allClear) {
-                if (allClear) {
                     const formdataRef = fireDb.ref(currentUser.uid).child('Forms');
                     try {
                         formdataRef.push(formData)
-
                         history.push(`/form/a/${formData.uniqueID}`)
+                        
                     } catch (error) {
                         setshowError(true)
                         seterrorMessage(error)
@@ -106,7 +106,7 @@ export const FormToolBar = ({ value, id, isThisActive }) => {
                     }
 
                 }
-            }
+            
         }
     }
 
@@ -176,7 +176,7 @@ const SavePopUp = ({ show, saveForm }) => {
                     </div>
                 </div>
                 <div className="text-center md:text-right mt-4 md:flex md:justify-end">
-                    <button className="block w-full md:inline-block md:w-auto px-4 py-3 md:py-2 bg-red-200 text-green-700 rounded-lg font-semibold text-sm md:ml-2 md:order-2" onClick={saveForm}>Save </button>
+                    <button className="block w-full md:inline-block md:w-auto px-4 py-3 md:py-2 bg-red-200 text-green-700 rounded-lg font-semibold text-sm md:ml-2 md:order-2" onClick={() => { saveForm() }}>Save </button>
 
                     <button className="block w-full md:inline-block md:w-auto px-4 py-3 md:py-2 bg-gray-500 rounded-lg font-semibold text-sm mt-4
                     md:mt-0 md:order-1" onClick={() => { setSaveWarning(false) }}>Cancel</button>
