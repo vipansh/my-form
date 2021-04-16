@@ -18,7 +18,6 @@ export const SharedFormPage = ({ match }) => {
     const [allFormData, setallFormData] = useState()
     React.useEffect(() => {
 
-
         const todoRef = fireDb.ref(uid).child("Forms");
         todoRef.on('value', (snapshot) => {
             const todos = snapshot.val();

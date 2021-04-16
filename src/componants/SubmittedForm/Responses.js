@@ -1,25 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { ResponsesBox } from './ResponsesBox';
 
 export const Responses = ({ data, questions }) => {
 
-    // function transposeArray(array, arrayLength) {
-    //     const newArray = [];
-    //     for (var i = 0; i < array.length; i++) {
-    //         newArray.push([]);
-    //     };
-
-    //     for (var i = 0; i < array.length; i++) {
-    //         for (var j = 0; j < arrayLength; j++) {
-    //             newArray[j].push(array[i][j]);
-    //         };
-    //     };
-
-    //     return newArray;
-    // }
-
-
-
+    
     const [responsesArr, setResponsesArr] = useState(() => {
 
         let todoList = []
@@ -39,8 +23,27 @@ export const Responses = ({ data, questions }) => {
         return (todoList.length);
     })
 
+    useEffect(() => {
 
-    React.useEffect(() => {
+        let todoList = []
+        let todolength = 0
+
+        for (let id in data.responceList) {
+            todoList.push([...data.responceList[id]]);
+        }
+        todolength = todoList.length
+
+        todoList = todoList[0].map((_, colIndex) => todoList.map(row => row[colIndex]));
+        setResponsesArr(todoList);
+
+        setTotalAns(todolength)
+
+    }, [data])
+
+
+
+
+    useEffect(() => {
         let chartarr = []
 
         for (let i = 0; i < data.content.length; i++) {

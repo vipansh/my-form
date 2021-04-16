@@ -3,8 +3,14 @@ import React, { useState, USeEffect } from 'react'
 export const OperationBoxForQuestion = ({ value, id, data }) => {
     const { allQuestions, setAllQuestions } = value
 
-    const [required, setRequired] = useState(false)
+    const [required, setRequired] = useState(() => {
+        let questionArray = [...allQuestions]
 
+        questionArray = questionArray.filter((x, i) => (i === id))
+        return (questionArray[0].required)
+
+    })
+console.log(allQuestions)
 
     function duplicateOne() {
         setAllQuestions(allQuestions => {

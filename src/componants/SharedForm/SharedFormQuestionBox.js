@@ -17,9 +17,6 @@ export const SharedFormQuestionBox = ({ data, color, id, value }) => {
     const [idSelected, setidSelected] = useState()
 
     const handelChange = (a) => {
-
-
-
         setidSelected(a)
         updateResponce(a, id)
 
