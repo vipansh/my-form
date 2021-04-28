@@ -2,11 +2,11 @@ import React from 'react'
 
 export const SubmitedForm = ({ title, setformSubbmited,id  }) => {
 
-    function submitAnotherForm(y) {
+    function submitAnotherForm() {
         let values = JSON.parse(localStorage.getItem('form'))
         console.log(values)
        values= values.filter(x=>x!=id);
-       localStorage.setItem("form",values)
+       localStorage.setItem("form",JSON.stringify(values))
 
     }
 
