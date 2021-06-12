@@ -1,6 +1,9 @@
 
 ### Getting Started — Opening the App
 
+###test@gmail.com 
+###test@1234
+
 I made this project to learn about firebase and CURD operation along with authentication.
 
 **This is home page user can create form and view the result of old forms. 
